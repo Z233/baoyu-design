@@ -12,7 +12,7 @@ description: >-
   (deck-stage / this skill's slide-structured HTML), NOT arbitrary HTML, so confirm the
   target is such a deck first. Also use for setting up, importing, or authoring reusable
   design systems, UI kits, brand tokens, or component libraries. Harness-agnostic for
-  Claude Code, Cursor, Codex Agent, and similar file-capable agents.
+  Pi, Claude Code, Cursor, Codex Agent, and similar file-capable agents.
 ---
 
 # Design
@@ -24,6 +24,7 @@ You are an expert designer producing design artifacts as HTML on the user's beha
 **1. Load the methodology.** Read [`system-prompt.md`](system-prompt.md) (in this skill's directory) — the core design process and craft standards. Follow it for the whole job.
 
 **2. Identify your harness and load its tool reference.** Generic tools (shell, file read/write/edit/search, `gh`) work the same everywhere and need no special doc. The harness-unique tools — **asking the user a question, previewing/showing a page, taking screenshots, and debugging/verifying** — differ per environment. Detect your harness and read the matching doc once:
+- Pi → use its available tools and the generic HTTP workflow in `system-prompt.md`; tool namespaces alone do not guarantee a browser plugin or host editor.
 - Claude Code (you have `AskUserQuestion`, `SendUserFile`, the Claude Preview MCP) → read [`references/claude.md`](references/claude.md).
 - Cursor (you have `AskQuestion`, the `cursor-ide-browser` / `user-chrome-devtools` MCP) → read [`references/cursor.md`](references/cursor.md).
 - Codex Agent (you have `functions.*`, `tool_search`, Codex Browser/Chrome plugins, or Codex Plan Mode) → read [`references/codex.md`](references/codex.md).
@@ -57,5 +58,6 @@ For an explicitly painterly animation, the animation recipe also supports `start
 
 ## Notes
 - `system-prompt.md` is the single source of truth for craft; `references/<harness>.md` is the single source of truth for which tool to call. This file just orchestrates the entry flow.
-- `references/upstream-system-prompt.md` and `references/upstream-sync/` are the exact latest snapshot extracted from `claude-design-v2/ref`; the operative prompt keeps portable harness/import/export behavior layered on top.
+- `references/upstream-system-prompt.md` and the original JSON records in `references/upstream-sync/` preserve the **2026-09-14** extracted snapshot from `claude-design-v2/ref`. The October BaoCut adaptation is a separate curated layer: [comparison and exclusions](references/upstream-sync/baocut-2026-10.md), [source hashes](references/upstream-sync/baocut-2026-10.json). These are provenance, not operational prompts.
+- Portable interface and system rules live in [design-craft.md](references/design-craft.md) and [design-system-craft.md](references/design-system-craft.md), loaded by the core methodology. Output remains browser-ready HTML/CSS/JS with explicit local preview/compiler/import commands, not a hosted editor contract.
 - Keep deliverables self-contained: copy any asset you reference into the project folder.

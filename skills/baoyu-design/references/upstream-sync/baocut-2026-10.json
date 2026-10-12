@@ -1,0 +1,129 @@
+{
+  "kind": "curated-portable-rules",
+  "repository": "https://github.com/JimLiu/baocut",
+  "commit": "7aa049e82e1367da013b7aba80f0b79033fa04ad",
+  "authorDate": "2026-10-11T21:28:24Z",
+  "committerDate": "2026-10-11T22:19:54Z",
+  "comparedAt": "2026-10-12T04:41:34.519457+00:00",
+  "localBaseline": "6530033592bf7fa58bc1a5a2a2ad278da45213a9",
+  "preservedSnapshot": "2026-09-14",
+  "sourceFiles": [
+    {
+      "path": "skills/baocut/built-in-skills/design/SKILL.md",
+      "sha256": "5b56f1824f7537fc54a24e9d975be52bb78714b977bf466f69ad385eb124c3e8",
+      "bytes": 17918
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/brand-colors.md",
+      "sha256": "6bba988ee41533870ca6c623364fba7a1dec6226a571200e4a2e3f3a8da3c9ba",
+      "bytes": 2228
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/brand-typography.md",
+      "sha256": "56ef7815d8cec272490f1976bb169f1bb07d940e82a5618338877fd902deaa1f",
+      "bytes": 1553
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/craft.md",
+      "sha256": "cf5dc57089efe50e5da3bb174a5b80964ec652313739c9190afdb74ec329622e",
+      "bytes": 15637
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/design-system-components.md",
+      "sha256": "f94f61740cd515a9537435ae30496eac794ce8c1ea963a065350f6fc36845112",
+      "bytes": 11822
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/diagrams.md",
+      "sha256": "bd64d9d4ccbfe6ad1dbff72db65a6812294d889af275d01ceff054eaa41f1993",
+      "bytes": 10131
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/format.md",
+      "sha256": "54f6b9b830f53496de239e1690d9a6c9cc8fc4645bfea537dff7110219c5fe52",
+      "bytes": 11860
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/print.md",
+      "sha256": "35f0d1fc01ae1b2e1927db073b6278ca33f40a2d7d60f0985998f85ae82a803c",
+      "bytes": 5602
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/questions.md",
+      "sha256": "017b9c4116e12e83a69860434b176703b319daa0cb1ecde8ad58272f9c7f61ca",
+      "bytes": 4683
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design/references/view-state.md",
+      "sha256": "efbade0239b7299cbd2a736770e0822059a6a3a92210f2dd8bbc4413cb8d1ed4",
+      "bytes": 5574
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/SKILL.md",
+      "sha256": "e20095e9c2215cf98f6185d8733744e8789dc074b8fbdd2c5721242e56c58f67",
+      "bytes": 16749
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/cover.md",
+      "sha256": "914f94228cd8b00ef6c228892fbc442f09cac29971d45008a89901683160564a",
+      "bytes": 6932
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/craft.md",
+      "sha256": "fce56e16960ddaa119b43688f7b1f900f9860e64e647c3aee000e8bbf71366d8",
+      "bytes": 8812
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/demo.json",
+      "sha256": "ba5c9dc5778930275d1acb91048fed12d18acbf1e85f4d54292b3a9deadc2843",
+      "bytes": 164928
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/format.md",
+      "sha256": "48e71ac3d06d4769733412ceb8b560236406125e98cb794ca38a195e6001cab8",
+      "bytes": 18837
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/from-code.md",
+      "sha256": "2c27e89d684c64470508bf3ee4c9dbed52fccc821c4af675804ca827834bf545",
+      "bytes": 11610
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/from-design-tool.md",
+      "sha256": "0ad0bbdf80f5f06cf1e9892d9fa717b637c98b3ad87c81500160f0d01c08d419",
+      "bytes": 16339
+    },
+    {
+      "path": "skills/baocut/built-in-skills/design-system/references/sample-seazar-tokens.json",
+      "sha256": "a17410b515e73b1a36d6b3b9164575bb1fcd8b0931ecb7f5f5b2c8bdfcf5bfa6",
+      "bytes": 11291
+    }
+  ],
+  "mainComparison": {
+    "latestDesignPathCommit": "8a03fbc6eaff81b72b070e1dcf2b7c1c822405ae",
+    "committerDate": "2026-10-11T22:53:36Z",
+    "latestDesignSystemPathCommit": "7aa049e82e1367da013b7aba80f0b79033fa04ad",
+    "changedFiles": [
+      {
+        "path": "skills/baocut/built-in-skills/design/SKILL.md",
+        "sha256": "f98ce71272415c0736b0eb2a6c7c0a70745a52244cefc261f06b9c12d1567774",
+        "difference": "Space discovery specifies design-system kind; BaoCut-only, not migrated"
+      }
+    ],
+    "otherSourceFilesMatch": true
+  },
+  "comparison": "baocut-2026-10.md",
+  "portableReferences": [
+    "../design-craft.md",
+    "../design-system-craft.md",
+    "../anthropic-brand.md"
+  ],
+  "excludedRuntimeTools": [
+    "design_check",
+    "design_import_asset",
+    "design_system_check",
+    "design_system_import_asset",
+    "space_list",
+    "skills_read"
+  ]
+}

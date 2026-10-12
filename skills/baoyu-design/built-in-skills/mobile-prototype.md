@@ -6,6 +6,8 @@ The user is building a mobile prototype that they'll open on an iPhone
 and pin to their home screen. Emit a single self-contained HTML file
 that is ready for that flow by default — don't ask first.
 
+Follow [Portable design craft](../references/design-craft.md) and the bound design system. Use real content and native labeled controls; keep touch targets at least 44×44 CSS px. Treat install metadata as setup, not proof that a real-device installation was tested.
+
 ## Required <head> tags
 
 Always include these, otherwise the "pin to home screen" banner won't
@@ -39,8 +41,9 @@ tucks under the notch).
 
 On large viewports (min-width: 700px), center the app inside a
 device-sized inset rectangle so the designer can see it as a "phone on
-desktop" during iteration. Target ~390×844 for the phone frame, round
-the corners (~40px), and drop it in a soft background. Example:
+desktop" during iteration. Target ~390×844, but cap the frame to the
+available width/height and let content scroll rather than clipping it.
+Use the system's radius/background where specified. Example:
 
     html, body { margin: 0; height: 100%; overscroll-behavior: none; }
     body {
@@ -50,17 +53,19 @@ the corners (~40px), and drop it in a soft background. Example:
     }
     #app {
       width: 100vw;
-      height: 100vh;
+      height: 100dvh;
+      box-sizing: border-box;
+      overflow: auto;
       background: <app bg>;
       padding-top: env(safe-area-inset-top);
       padding-bottom: env(safe-area-inset-bottom);
     }
     @media (min-width: 700px) {
       #app {
-        width: 390px;
-        height: 844px;
+        width: min(390px, 100vw);
+        height: min(844px, 100dvh);
         border-radius: 44px;
-        overflow: hidden;
+        overflow: auto;
         box-shadow: 0 30px 80px rgba(0,0,0,0.35);
       }
     }
@@ -81,3 +86,7 @@ transitions, forms — everything that makes it feel like a real app —
 should all work inside that single file. No external build, no CDN
 dependencies beyond what's already allowed in the normal prototype
 workflow.
+
+Serve over HTTP and test the main flow, keyboard focus, safe-area layout,
+320px width and a short desktop viewport. Save screenshots or a DOM/check
+report; report real-device behavior as unverified unless you tested it.

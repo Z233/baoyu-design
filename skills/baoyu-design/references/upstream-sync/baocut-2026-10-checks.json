@@ -1,0 +1,329 @@
+{
+  "checkedAt": "2026-10-12T04:43:54.706063+00:00",
+  "node": "v26.3.0",
+  "baselineTests": {
+    "passed": 91,
+    "failed": 0
+  },
+  "finalTests": {
+    "passed": 99,
+    "failed": 0,
+    "skipped": 0
+  },
+  "activeMarkdownFiles": 61,
+  "commands": [
+    {
+      "command": "npm run check:skill",
+      "exitCode": 0,
+      "log": "/tmp/baoyu-design-final-skill.log",
+      "logSha256": "e313b74dfb5d458aca71518f7a2efd15ab16224894efcf1c96e0661f49391636"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "log": "/tmp/baoyu-design-final-tests.log",
+      "logSha256": "cf9d72ece61b933ce878a9c18c6d16e22ce86d8bb457ecab17c1d269bbac9c08"
+    },
+    {
+      "command": "git diff --check",
+      "exitCode": 0,
+      "log": "/tmp/baoyu-design-final-diff.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "inputHashes": [
+    {
+      "path": "package.json",
+      "sha256": "8f0b93bf5a159a8a3cd4f20189cd3c0e6a5ffde4ad5718118c63077cad73dabc"
+    },
+    {
+      "path": "skills/baoyu-design/SKILL.md",
+      "sha256": "79037e3faaea197e287e6befcf434eb0b89c5dac323c9dba467f548a4eda8b99"
+    },
+    {
+      "path": "skills/baoyu-design/agents/check-skill.mjs",
+      "sha256": "3815d6116c26ae746d6bc35988e9cc4d2201ab0786228b80cc81424715916bb6"
+    },
+    {
+      "path": "skills/baoyu-design/agents/tests/check-skill.test.mjs",
+      "sha256": "903b0fcf62ad6f0d28f1fd5d83baf7dff283d69fee8f1043e6008015f32c95c8"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/3d-object.md",
+      "sha256": "12953200adda97bd6c41d74d57fd3395832b440e9b70520676e3d59cfccb7d43"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/animated-video.md",
+      "sha256": "dbcd3fb0fb48cc55dc375a03d02dc4f4036ec4cef2ac79548b036c1dff9c123a"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/ask-the-user.md",
+      "sha256": "eed013f87585b98d9427ee77e5130828bb4ef8dcbcf94be23ee5ad56e5b47e84"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/claude-api-in-prototypes.md",
+      "sha256": "7b1f790460e33058b718e3072f33330f80e82f3c39ddeb7e43e4927b2fe58ed9"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/create-design-system.md",
+      "sha256": "67e18bc21b3893a7123935b82d8b38b871327ad5750dac08f391b9a5aa7e3cbf"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/data-science.md",
+      "sha256": "c29492570fdf569642c754278b84e5a9c52403a175cbfde498773df83bb78970"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/data-visualization.md",
+      "sha256": "58ff647cb0e46c8f61cf84dad895612ead3437a1bc06ea0729835f7f6de2dc66"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/design-components.md",
+      "sha256": "00a9566c43ffbdc567fde85718a004398c62d1da112d22fe3f5f31cd3e58e90a"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/design-feedback.md",
+      "sha256": "2eebf12b5f2924d1306878324335610c96b69c38b189160df639c5959e22595d"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/design-system-authoring-guide.md",
+      "sha256": "8121fa1058ce753ee872f0d20d5e57752b4fc6c8a1f3f3d54f67d824c0f80037"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/design-system-preview.md",
+      "sha256": "7459de34a36e8ce38fdd4e7a9c59b5f183a9a4a22c6c624ce687d2abf220891f"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/experiment-workflow.md",
+      "sha256": "bb16d966bbef6d922ea0f5d66f12509a1d98d723b84cc1ee68f95633202adfd1"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/export-as-pptx-editable.md",
+      "sha256": "0d6bf6a7585415caa927c8c9d3feaebed7b0df2612445f46635fd8b183ec51c6"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/export-as-pptx-screenshots.md",
+      "sha256": "e0d40453ca742bc533ed693d2fdd3d88281a6cadf1a9e553d6d56f9b15147cf3"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/export-as-video.md",
+      "sha256": "7df8820c33a37e5e770f37b0fe13bcf30da9082cd98348bc27c69795fd9cbdf6"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/export-pptx-editable.md",
+      "sha256": "50678ad813da288f6b04465631f89b3b3c99343809019e9674d9a4cc915374df"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/export-pptx-screenshots.md",
+      "sha256": "13f3a714b95e6f004726e5a75a299e84d3722c7fc06f736def31a49c9c87a57e"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/exportable-video.md",
+      "sha256": "9b8427a4329d094ed1f069dde26ca1179d997ec6e0f45e654de2f462de958b7b"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/flier.md",
+      "sha256": "8a53212fc1511d04fab1c5f80617b84b77037d426c89c3318fb6e1cc86b89d8d"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/frontend-design.md",
+      "sha256": "4449b7198fa771f9eeaa03d6893437a7428c9197e08fdaea32cd207a06c51d49"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/gemini-image.md",
+      "sha256": "20a5c7b6b004b600e064c497d15268053aa39fa5d108f4c831105590c652e1f8"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/generate-images.md",
+      "sha256": "acbbbad683996f4b86e431e65a8fa5e693686b02499f4f5ed8d2aa03a84a77b9"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/google-slides-safe.md",
+      "sha256": "7187fcf47bd7e991cf3869c1899fd961a74d8f526928dc0aad90c5c2341d5f01"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/handoff-to-claude-code.md",
+      "sha256": "95f48a3fab9c0983f79d66cc8ba77a1d25f9c2ce985d2e90acb6b9c1764bc1a3"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/hi-fi-design.md",
+      "sha256": "6420f2f4808385b83705a767fe758f7e788f5385b2f07cda0a4e99ff391dee8b"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/html-email.md",
+      "sha256": "95152b23307cd49616acb4047c1c686542da5e28045808c6d1b4afc2922d0ee2"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/import-from-figma.md",
+      "sha256": "7fe33ccadd0b6db66a45447ea2ae9c6b3f589f3aa3429ffe476bd1f6fd3cacf8"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/import-from-github.md",
+      "sha256": "09a366d16ad0f8a26fa55e9972e2d4b97187bc495ed01c781fe67ee0dbe7ff88"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/import-from-html.md",
+      "sha256": "b0a94e7c1b10f2bb34d37d6b08c1ac27ba2885ea66db7bde4be63fc314ce27f2"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/interactive-prototype.md",
+      "sha256": "866dca8c961026de9f1b8bf804fdcd12dc64f02b297f35f2c202b263be2c9d45"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/low-level-tweaks-api.md",
+      "sha256": "9a36407fa0aa111ce51b4d4c984be0265868e887db87f845c6ffdde708ae73d2"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/make-a-deck.md",
+      "sha256": "84d37725d5026959a1cc774e175ddfae4c4df559b8ad05e085aeca2981b7cd24"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/make-a-doc.md",
+      "sha256": "822b7846038f6c2390bbb4817d716e33808d0b1c634a5140da7707c2cf56fc76"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/make-tweakable.md",
+      "sha256": "26df126302a8915b3f1f7eb595aeeec173884d661f97d42a7327c23c1d7648e4"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/maps-geography.md",
+      "sha256": "6caceaeddd48fdd4cf6ff76168d82a0155fb083cad4b084e64324a230c089ca1"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/mobile-prototype.md",
+      "sha256": "ef10146bd1c2acfdec23a0b91b855a4ea93d90424824bcc034595507de573725"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/options-stack.md",
+      "sha256": "35876fb848948dcaaac27dc2bc99b5206c0fb9d05bb9ffb60421e9e819772350"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/read-pdf.md",
+      "sha256": "6ae244b3ca7ba9be494e95df75cabfae0040c0f370b941d644c7074e5dbf60a0"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/save-as-pdf.md",
+      "sha256": "8c05a4661b089199a613d53103904fc00a29febc7d8e8d71c439a7cbe25d09ec"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/save-as-standalone-html.md",
+      "sha256": "e59d1c68cc0dd7d3cbedcfa816590a6457a4b4f8bcf082983a8d9d12838a6138"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/send-to-canva.md",
+      "sha256": "10d9802fcb300f6f34a07801e4caacdab91acd5bd58d631d22c1e4921859bc08"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/send-to-figma.md",
+      "sha256": "366a669f72f2dd5c7c56315c2fab98ca52e595d7b58661d1a771517a4ee48bb1"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/social-media-content.md",
+      "sha256": "47f6a6c4a6b3d949795eb2ddb9732c7b642cb2aab9f1a30c3d7e9a311dce189b"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/something-cool.md",
+      "sha256": "800d405db1b66f4c4175cf4b8dafa197516d8c7e63cfbfe730506d7f1ffcc4f2"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/sound-effects.md",
+      "sha256": "1aafe4de90b1850bddd62759f4a8d6fa7c58671430ca8d4a647e3a16922fc171"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/speaker-notes.md",
+      "sha256": "204ff098d5769df113bc10c11391c8ea8e4b85dd9e86250695d71e3e4bbecaf1"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/trifold-brochure.md",
+      "sha256": "4ae5f456feabcd7c8d62081cf433f5098d5df44e3630ddae7c18cdac879489c9"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/tweaks-protocol.md",
+      "sha256": "fa486d5bc340256b23ae136fedc28052844572d2832904257d78dc0d0b0ce935"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/use-design-system.md",
+      "sha256": "f10c840b962159e9169c1c71c7128ff33c998ef91d495618c866446dbb2e7bb5"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/watercolor-illustration.md",
+      "sha256": "63f7874c490257b796ed037e716b60b4a473ba89476d062d184b143e4d62851f"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/web-research.md",
+      "sha256": "175e38a902b4dddaac3d2bfcac8a291686c84184b54e8d8831b40ee0edbbbda0"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/website-landing-page.md",
+      "sha256": "e5b4bd8a06ad5bd3ca54c906b33da415d3ec6004ddb749faa539222fd7165337"
+    },
+    {
+      "path": "skills/baoyu-design/built-in-skills/wireframe.md",
+      "sha256": "c98e5d3e4822be61f484335c6b4386811a517a151498ee4a89a251dddaf3f008"
+    },
+    {
+      "path": "skills/baoyu-design/references/anthropic-brand.md",
+      "sha256": "a1e5e14c8f401321b58a3557980bc8f53f7bd4a1db2387c4b7e9ecd60ce6656b"
+    },
+    {
+      "path": "skills/baoyu-design/references/claude.md",
+      "sha256": "e77d4fd32878506f25a46598a81803217e9e5ae6b83677c43d8df8d0e97b599d"
+    },
+    {
+      "path": "skills/baoyu-design/references/codex.md",
+      "sha256": "d80e49abaa3599f52bd74de2ce2b3136d09b5241f6f0bc4c0a55fc6307c41fcf"
+    },
+    {
+      "path": "skills/baoyu-design/references/cursor.md",
+      "sha256": "68dcd2b73a7c49f834d139f6310284c279b107015a251aa48ae51ce4445c4d52"
+    },
+    {
+      "path": "skills/baoyu-design/references/design-craft.md",
+      "sha256": "86bbffdb28e95656d58eaee70985cf99fef74483c7c0c79326043af912f2ca44"
+    },
+    {
+      "path": "skills/baoyu-design/references/design-system-craft.md",
+      "sha256": "4f33a4b47296e6a4fefde901eb99b58364415b439af1bc4958072edc5752ddca"
+    },
+    {
+      "path": "skills/baoyu-design/system-prompt.md",
+      "sha256": "3f6b86249f128564c423224d04ef077b78a9fd239ed5c45f1282297329f671da"
+    }
+  ],
+  "changedFiles": [
+    "CHANGELOG.md",
+    "CHANGELOG.zh.md",
+    "README.md",
+    "README.zh-CN.md",
+    "package.json",
+    "skills/baoyu-design/SKILL.md",
+    "skills/baoyu-design/agents/check-skill.mjs",
+    "skills/baoyu-design/agents/tests/check-skill.test.mjs",
+    "skills/baoyu-design/built-in-skills/create-design-system.md",
+    "skills/baoyu-design/built-in-skills/design-components.md",
+    "skills/baoyu-design/built-in-skills/design-system-authoring-guide.md",
+    "skills/baoyu-design/built-in-skills/frontend-design.md",
+    "skills/baoyu-design/built-in-skills/hi-fi-design.md",
+    "skills/baoyu-design/built-in-skills/interactive-prototype.md",
+    "skills/baoyu-design/built-in-skills/make-tweakable.md",
+    "skills/baoyu-design/built-in-skills/mobile-prototype.md",
+    "skills/baoyu-design/built-in-skills/save-as-pdf.md",
+    "skills/baoyu-design/built-in-skills/use-design-system.md",
+    "skills/baoyu-design/references/anthropic-brand.md",
+    "skills/baoyu-design/references/design-craft.md",
+    "skills/baoyu-design/references/design-system-craft.md",
+    "skills/baoyu-design/references/upstream-sync/baocut-2026-10-checks.json",
+    "skills/baoyu-design/references/upstream-sync/baocut-2026-10.json",
+    "skills/baoyu-design/references/upstream-sync/baocut-2026-10.md",
+    "skills/baoyu-design/system-prompt.md"
+  ],
+  "notVerified": [
+    "Model-generated design quality comparison",
+    "Rendered accessibility of a new product prototype",
+    "BaoCut editor/runtime integration"
+  ],
+  "preserved": [
+    "2026-09-14 extracted upstream snapshots",
+    "Starter component runtimes",
+    "Deck/PDF/PPTX/Figma/import/asset runtime implementations"
+  ]
+}

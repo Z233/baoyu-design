@@ -2,7 +2,7 @@
 name: "design-components"
 description: "Design Components\nAuthor streamable .dc.html Design Components"
 ---
-Enable Design Components authoring for this project.
+Use the local design-system component authoring contract below. A `.dc.html` filename alone does not supply a browser runtime. For independent previews, author ordinary HTML/CSS/JS or mount compiled React components; keep any existing custom template only when its actual runtime is present. Do not assume another editor's template/compiler is installed. See [Portable design-system craft](../references/design-system-craft.md).
 
 ## This project is a design system
 
@@ -30,4 +30,4 @@ After any edit, recompile (above), then run the **read-only design-system checke
 node <skill>/agents/check-design-system.mjs designs/<project>
 ```
 
-To run it as an isolated read-only subagent (recommended after a batch of edits), launch it with the prompt at [`../agents/design-system-checker.md`](../agents/design-system-checker.md) — see your harness reference (`references/<harness>.md`) for the exact launch tool. Fix what it reports and run again until clean.
+Run it inline by default; use [`../agents/design-system-checker.md`](../agents/design-system-checker.md) as an isolated review only when the user requests it and the harness supports it. Fix reported issues and run again. Check rendered states, keyboard behavior and every supported theme over HTTP separately; the checker does not measure contrast or visual fidelity.

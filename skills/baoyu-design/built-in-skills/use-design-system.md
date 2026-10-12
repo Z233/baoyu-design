@@ -6,6 +6,8 @@ description: "Consume an existing design system from a regular design project �
 
 Use this guide when you're building a **regular design project** (a mockup, prototype, deck, app screens — anything that is *not itself* a design system) and want it to follow one or more existing design systems. It is the consumer-side companion to [`design-system-authoring-guide.md`](design-system-authoring-guide.md) (which covers the other direction — *authoring* the system you import here).
 
+Read [Portable design craft](../references/design-craft.md) before choosing appearance. A chosen/bound system wins over generic aesthetic preferences; its sample products and people remain visual-reference data, not facts about the user. The local import/metadata format below remains authoritative.
+
 The mechanism mirrors the authoring pipeline: instead of scattering copied assets, you sync a **self-contained, version-pinned copy** of each design system into `<project>/_ds/<slug>/` with a script, wire it into your HTML, and record the binding in `<project>/_d_meta.json`. Re-running the script later is how you pull updates.
 
 ## How projects and design systems are distinguished on disk
@@ -31,7 +33,7 @@ Don't maintain an index file — discovery is always this glob, on demand.
 
 ### 2. Ask where to save and which system(s) to use
 
-Before building, confirm with your harness's Ask-Question tool (Claude Code: `AskUserQuestion`):
+Before styling, resolve these choices from the brief and current binding. Ask only where they remain open, using an available question tool or chat; do not repeat answered questions. For unattended work or “just do it”, state defaults and proceed:
 
 1. **Where to save** — default `designs/<descriptive-slug>/`; allow a custom location.
 2. **Which design system(s)** — list what discovery found, **multiSelect** so the user can pick **none** (free design), **one**, or **several**. With several selected, the **first selection** is the primary by default; confirm if they want a different primary.
@@ -62,7 +64,7 @@ It writes **only** `_ds/<slug>/` and `_d_meta.json` — never the DS source, and
 
 ### 4. Wire it into your page
 
-**Loading the bundle is how you use a design system.** Every page must load each consumed system's stylesheets and bundle, and compose with the components the bundle exports on `window.<Namespace>` — don't recreate them from scratch or restyle raw HTML to look like them. Use the wiring lines the script printed:
+**Use real components when the system supplies them.** Every page loads each consumed system's stylesheets and available bundle, composing with its exports on `window.<Namespace>` rather than imitating them. Read usage contracts first; preserve required providers, use its icon API, and mount its real overlays with the documented open state. Load React/ReactDOM once, not a second copy from the system. For a token-only system, use semantic HTML styled with its actual tokens and report that no component bundle exists. Use the wiring lines the script printed:
 
 ```html
 <!-- React + ReactDOM first (the pinned UMD tags) — the bundle calls React.createElement -->
@@ -84,8 +86,8 @@ Then pull components from each system's own namespace — `const { Button, Card 
 Importing and wiring a system is **not** the same as *following* it. Before you design, **load the bound system's prompt** and treat it as the visual contract — for **each** system you imported:
 
 - **Read `_ds/<slug>/_ds_prompt.md`** — the self-contained per-load prompt the importer generates: it states the binding + scope, gives the bundle-first wiring (the pinned React tags, every stylesheet `<link>`, the bundle `<script>`, and a `type="text/babel"` example for the page's own JSX), reproduces the full guide inline, carries per-component usage excerpts from each component's `*.prompt.md` (those files aren't copied into `_ds/`), and lists the exact `var(--*)` token allowlist. This is the one file to load every time you design. (`_ds/<slug>/README.md` and `_ds/<slug>/SKILL.md` are the deeper source refs if you need them; the import script prints a reminder.)
-- **Compose with the bundle's components.** Build pages from the components the bundle exports on `window.<Namespace>` — never recreate them from scratch or restyle raw HTML to imitate them. The usage excerpts in `_ds_prompt.md` show each component's intent and example JSX at a glance; the full `*.prompt.md` files live in the system's source tree.
-- **It is binding.** Every visual must follow it — don't invent colors, type, spacing, or components that aren't grounded in the system. Build only from its tokens — use `var(--*)` names from the allowlist in `_ds_prompt.md`, and never guess a name (an unresolved `var()` silently falls back to the browser default). With several systems, the **primary** owns the overall visual language; pull only specific components from the others.
+- **Compose with the bundle's components.** Use the available exports on `window.<Namespace>` with their documented props/providers. The usage excerpts in `_ds_prompt.md` show intent and example JSX; the full `*.prompt.md` files live in the source tree. If a needed component is absent or cannot render in this preview, use the system's tokens with native HTML and disclose the gap, rather than claiming to mount a component you do not have.
+- **It is binding.** Match exact colors, type, spacing, radii and states; use actual `var(--*)` names from the allowlist, not guessed tokens or rounded values. With several systems, the **primary** owns the visual language. Test each theme's text/surface pairs, focus and accent labels; preserve source colors but report contrast failures and propose an accessible variant. A missing role needs a disclosed, agreed addition, not a silent new palette.
 - **Scope — visual style only.** The design system is a *visual style reference*, nothing more. Its guide may describe example products, brands, or people that are unrelated to the user and to what they asked for. Never treat anything in the design system as a fact about the user, their work, or the topic of the conversation.
 - **Mine it for what you need.** Copy out the fonts and colors you use; for prototypes and designs, copy out any relevant components. If the system ships mocks of existing products and you're asked to design something similar, **fork those mocks** to start — it beats designing from scratch. The runtime copy under `_ds/<slug>/` holds the CSS + compiled bundle; the system's **source** (its `sourcePath` in `_d_meta.json`, e.g. `designs/<ds>/ui_kits/`, `preview/`, component files) is where the mocks, specimens, and component source live — read and fork from there.
 

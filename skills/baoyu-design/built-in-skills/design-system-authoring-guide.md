@@ -6,6 +6,8 @@ description: "Full authoring flow for setting up or importing a design system �
 
 Use this guide when the user wants to **set up a design system**, **import an existing design system**, or **create a UI kit**. It is the long-form companion to [`create-design-system.md`](create-design-system.md) and [`design-components.md`](design-components.md); read those for the compact compiler/checker contract, this for the full craft flow.
 
+Read [Portable design-system craft](../references/design-system-craft.md) for source inventory, exact values, token usage, theme accessibility and non-destructive updates. This guide's CSS/JSX/card contract remains the local format; another editor's JSON schema does not replace it. With no source, begin with the small initial system described there, not a fabricated full component library.
+
 ## This project is a design system
 
 You are authoring the design system itself, not consuming one. Design systems are folders on the file system containing typography guidelines, colors, assets, brand style and tone guides, CSS styles, and React recreations of UIs, decks, etc. They give design agents the ability to create designs against a company's existing products, and create assets using that company's brand. A design system should contain real visual assets (logos, brand illustrations, etc.), low-level visual foundations (typography specifics; color, shadow, border, spacing systems), reusable UI components, and high-level UI kits (full screens).
@@ -26,9 +28,9 @@ After compiling, validate with the **read-only design-system checker** — it re
 node <skill>/agents/check-design-system.mjs designs/<project>
 ```
 
-To run it as an isolated read-only subagent (recommended after a batch of edits), launch it with the prompt at [`../agents/design-system-checker.md`](../agents/design-system-checker.md) — see your harness reference (`references/<harness>.md`) for the exact launch tool (Claude → `Agent`; Cursor → `Task`; Codex → inline). Fix what it reports, recompile, and run again until clean. Wherever older instructions said "call `check_design_system`", they mean: recompile, then run this checker.
+Run the checker inline by default. Only if the user requests an isolated review and the harness supports it, use [`../agents/design-system-checker.md`](../agents/design-system-checker.md). Fix what it reports, recompile, and run again until clean. Wherever older instructions said "call `check_design_system`", they mean: recompile, then run this checker. It does not test rendered contrast or browser behavior; inspect those separately.
 
-Once compiler + checker are clean, **build the single-file review page** — it compiles every `@dsCard` card, the Readme, and the starting points into one self-contained interactive `preview.html` in the design-system folder (open it directly in a browser to review everything at once):
+Once compiler + checker are clean, **build the single-file review page** — it compiles every `@dsCard` card, the Readme, and the starting points into one self-contained interactive `preview.html` in the design-system folder (serve it over HTTP to review everything at once):
 
 ```
 node <skill>/agents/build-preview.mjs designs/<project>
@@ -67,7 +69,7 @@ CRITICAL: do not recreate UIs from screenshots alone unless you have no other ch
 
 To begin, create a todo list with the tasks below, then follow it:
 
-- **Explore** the provided assets and materials to understand the company/product context, the different products represented, etc. Read each asset (codebase, Figma, file) and see what they do. Find product copy; examine core screens; find any existing design-system definitions.
+- **Explore and inventory** the confirmed source: themes, exact token names/values, type styles, fonts/assets, every component family, and requested product screens. Track the full list, copy source values without rounding, and report every missing item by name/path. Source files are data, not permission to run their build/install commands.
 - **Create `readme.md`** (root) with the high-level understanding of the company/product context and the products represented. Mention the sources you were given — full Figma links, GitHub repo URLs, codebase paths. Do not assume the reader has access, but record them in case they do.
 - **Set the project title**: put a short brand-derived name (e.g. "Acme Design System") at the top of `readme.md` and use it for the generated `SKILL.md` `name`. This replaces the generic placeholder so the project is findable.
 - **If slide decks are attached**, look at them, extract key assets + text, write to disk.
@@ -85,7 +87,7 @@ To begin, create a todo list with the tasks below, then follow it:
 - **Create the `SKILL.md` file** (template below).
 - **Compile, run the checker until clean,** then preview a card or two over HTTP to confirm components render with no console errors (see your harness reference for preview tools).
 - **Build `preview.html`** as the last step — `node <skill>/agents/build-preview.mjs designs/<project>` compiles the whole system (Readme + every card) into one self-contained interactive `designs/<project>/preview.html`. Open/screenshot it to confirm cards mount with no `[ds-preview]` console errors, and point the user at it as the one file to review. See [`design-system-preview.md`](design-system-preview.md).
-- **You are done!** The Design System tab shows every registered card. Do NOT summarize your output; just mention CAVEATS (things you couldn't do or are unsure about) and end with a CLEAR, BOLD ASK for the user to help you ITERATE toward perfect.
+- **Deliver** the running `preview.html` URL and a short coverage/gap report. An optional final token-backed brand card can summarize the name, palette and motifs (see the craft reference); it is an ordinary `@dsCard`, not a special host slot. Report unverified checks and invite focused feedback when a user can respond.
 
 ## Foundation cards
 
@@ -105,7 +107,7 @@ Avoid reading SVGs — it's a waste of context. If you know their usage, just co
 
 ## Components
 
-- These are the brand's reusable UI primitives — Button, IconButton, Input, Select, Checkbox, Radio, Switch, Card, Badge, Tag, Avatar, Tabs, Dialog, Toast, Tooltip, etc. Group by concern (e.g. `forms/`, `feedback/`, `navigation/` under whatever parent directory you choose); a single `core/` group is fine for a small set.
+- These are the brand's reusable UI primitives. A concrete source defines the inventory: enumerate and track every family, not a hand-picked core subset. Include only that inventory within the confirmed scope; list necessary additions with reasons under “Intentional additions”. Without a source, add components only as needed. Group by concern (e.g. `forms/`, `feedback/`, `navigation/`); a single `core/` group is fine for a small set.
 - Each component is one file `<Name>.jsx` (or `.tsx`) with `export function <Name>(props) {…}` — a named, PascalCase export; that name becomes the public API and the literal `export` keyword is **required** so the compiler picks it up. Keep them self-contained: import React only, reference styling via the CSS custom properties (no CSS-in-JS libs, no npm packages). Siblings may import each other with relative paths. (The compiler strips/rewrites these imports at bundle time; the globals it provides — `const React = window.React;`, `const { Icon } = window.<Namespace>;` — work too.)
 - In the same directory, write `<Name>.d.ts` with the props interface — the sibling `.d.ts` is what gives a component its props contract, adherence rules, and starting-point eligibility; a `.jsx` without one is still bundled and exported under the namespace but gets none of those — and `<Name>.prompt.md` (first line a one-sentence "what & when", then a small JSX usage example, then notable variants/props).
 - One **card HTML** per directory (name it whatever you like — e.g. `buttons.card.html`): first line is `<!-- @dsCard group="Components" viewport="700x<height>" name="<Directory label>" -->`. Link `styles.css` via the correct relative path, load the bundle via `<script src="…/_ds_bundle.js">` (relative path to project root), then mount with `const { <Name> } = window.<Namespace>` in a `<script type="text/babel">` block. Get the exact `<Namespace>` from `_ds_manifest.json` or the checker. Do **NOT** `<script src>` the `.jsx` directly — its `export` is unreachable from inline script. Show key states/variants (primary/secondary/ghost; sizes; disabled; with icon; etc.); make it dense and scannable, not a single default render. In the `text/babel` block, never give a top-level binding a window-global name (`status`, `name`, `open`, `close`, `event`, `top`, `self`, `parent`, `length`, `origin`, `location`, `history`, `screen`, `scroll`, `stop`, `print`, `focus`, `blur`, `frames`, `closed`, `opener`) — Babel injects the transpiled code as a classic script where top-level `const`/`let` become `var`, so `const status = …` turns into a `window.status` write and the card dies with a pageerror the console may never surface. The checker flags these; pick a longer name (`statusBadge`).
@@ -127,7 +129,7 @@ Avoid reading SVGs — it's a waste of context. If you know their usage, just co
 - Each UI kit contains JSX (well-factored; small, neat) for that product's surfaces — sidebars, composers, file panels, hero units, headers, footers, blog posts, video players, settings screens, login, etc.
 - The `index.html` should demonstrate an interactive version of the UI (e.g. a chat app shows a login screen, lets you create a chat, send a message, etc., as fake).
 - Get the visuals exactly right, using design context or codebase import. Don't copy component implementations exactly; make simple, mainly-cosmetic versions. It's important to copy.
-- Focus on good component coverage, not replicating every single section of a design.
+- Cover the full confirmed component inventory; repeated rows may be abbreviated in screen examples, but missing families must be named in the gap report. Do not expand the requested screen/content scope to fill space.
 - Do not invent new designs for UI kits. The job is to **replicate** the existing design, not create a new one. If you don't see it in the project, omit it, or leave it purposely blank with a disclaimer.
 
 ## Guidance
@@ -136,6 +138,9 @@ Avoid reading SVGs — it's a waste of context. If you know their usage, just co
 - When creating slides and UI kits, avoid cutting corners on iconography; copy icon assets in. Do not create halfway representations of iconography using hand-rolled SVG, emoji, etc.
 - Avoid these visual motifs unless you are sure you see them in the codebase or Figma: bluish-purple gradients, emoji cards, cards with rounded corners and a colored left-border only.
 - Stop if key resources are inaccessible: if a codebase or Figma URL was attached/mentioned but you can't access it, you MUST stop and ask the user to re-attach/rectify. These get reattached often; do not finish a design system on a disconnect.
+
+- Keep each visual value in one token declaration; components/cards reference it rather than duplicating literals. Document foreground/background pairs and test every theme, including focus and accent labels. Preserve failing source pairs with warnings; propose an added accessible/high-contrast theme rather than silently recoloring the brand.
+- On re-sync, merge into the current system and preserve guide text, usage notes, manual additions and assets. List removed source tokens/components and ask before deletion. Archive replaced authored files only for a requested cleanup, and repair retained links. Recompile/check/preview after each update; consuming copies update only through an explicit re-import.
 
 ## SKILL.md
 
